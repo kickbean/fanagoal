@@ -1,0 +1,12 @@
+{% extends "fana_base.html" %}
+
+{% block bodycontent %}
+	<a href="/activity/newpost">New Post</a>
+	<br><br>
+	
+  {% for p in posts %}
+    {{ p.render() | safe }}
+    <br><br>
+  {% endfor %}
+
+{% endblock %}
