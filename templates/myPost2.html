@@ -1,0 +1,25 @@
+{% extends "mainpage_base.html" %} 
+ 
+{% block midbodycontent %}
+<h3>My Post</h3>
+<table class="table">  
+	<tbody>
+		{% if not posts %}
+		Let's create some post using the New Post icon...
+		{% endif %}
+		{% for p in posts %}
+		<tr>
+			<td class="span5" colspan="2"><a href="/activity/{{p.key().id()}}"><strong>{{p.subject}}</strong></a></td>
+			<td class="span2"><div><small>{{p.created.strftime("%b %d, %Y")}}</small></div></td>
+			<td class="span1 pull-right"><span class="label label-success span1"><center># likes</center></span></td>
+		</tr>
+		<tr><td class="span2"></td>
+			<td colspan="2">{{p._render_text | safe}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table> 
+{% endblock %}
+
+
+

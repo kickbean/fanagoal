@@ -1,0 +1,80 @@
+{% extends "mainpage_base.html" %} 
+ 
+{% block midbodycontent %}
+<div class="span6 offset1" id="createtask">
+	<center>
+	<div class="modal-header">
+		<h3>Create Task</h3>
+	</div>
+	</center>
+	
+	<form method="post">
+	<div class="modal-body">
+	
+	<div class="span5">
+		<table class="table">  
+        <tbody>  
+          <tr>  
+            <td colspan="2"><input class="span3" type="text" name="name" value="{{name}}" 
+            placeholder="Task name"><br></td>
+          </tr>  
+          <tr>  
+            <td>Repeat every:</td>              
+            <td>
+		      	<input class="span1" type="text" name="freq_value" value="1">
+		      	<select name="freq_unit" class="span1">
+		      		<option value="day" selected>day</option>
+		      		<option value="week">week</option>
+		      		<option value="month">month</option>
+		      	</select>
+            </td>  
+          </tr>
+          
+          <tr>
+          	<td>Start date:</td>
+          	<td><input class="span2" type="text" name="start_date" id="start_date" value="{{start_date}}"></td>
+          </tr>
+          <tr>
+          	<td>End date:</td>
+          	<td><input class="span2" type="text" name="end_date" id="end_date" value="{{end_date}}"></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+            	<textarea class="field span4" rows="4" placeholder="Note" name="note">{{note}}</textarea>
+    			<div class="label label-warning">{{error_task}}</div>
+    		</td>
+          </tr>
+        </tbody>  
+      </table>
+
+      </div>
+      
+      
+	</div>
+	
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-success" name="create" value="newgoal">Save</button>
+		<button class="btn" aria-hidden="true">Close</button>
+	</div>
+	</form>
+</div>
+
+{% endblock %}
+
+{% block jscontent %}
+<script>
+$(function() {
+  $('#freq_selector').change(function(e) {
+    var s = $(e.target);
+    if (s.val()=='week') //hide/show something;
+    	$("#weeklyOnly").show();
+    else
+    	$("#weeklyOnly").hide();
+    $("#frq_unit").html(s.val());
+  });
+});
+
+
+</script>
+{% endblock %}
+

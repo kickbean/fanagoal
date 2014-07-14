@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fanagoal Signup</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+
+	</head>
+	<body>
+		<form id="login_signup" action="" method="post" name="signup">
+			<h2>FANAGOAL</h2>
+			<input type="text" name="email" placeholder="Email" value="{{email}}"/>
+			<input type="password" name="password" placeholder="Password" value=""/>
+			<div>
+				<input id="inputname" type="text" name="firstname" placeholder="First Name" value="{{firstname}}"/>
+				<input id="inputname" type="text" name="lastname" placeholder="Last Name" value="{{lastname}}"/>
+				{% if error_msg %}
+				<div id="error">{{error_msg}}</div>
+				{% endif %}
+			</div>
+			
+			<ul>
+				<li></li><a href="/login">Log in</a></li>
+				<li><input type="submit" value="Sign up"/></li>
+			</ul>
+		</form>
+	</body>
+</html>

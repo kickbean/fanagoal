@@ -1,0 +1,26 @@
+{% extends "mainpage_base.html" %} 
+ 
+{% block midbodycontent %}
+<table class="table">
+	<thead>
+		<tr>
+			<td><strong>Plan name</strong></td>
+			<td><strong>Author</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for g in goals: %}
+		<tr>
+			<td><a href='/goal/{{g.key().id()}}'>{{g.subject}}</a></td>
+			<td>{{g.author.firstname}} {{g.author.lastname}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>	
+		
+		
+{% endblock %}
+		
+
+
+

@@ -1,0 +1,30 @@
+ {% extends "mainpage_base.html" %} {% block midbodycontent %}
+
+<a href="/goal/{{p.goal.key().id()}}" class="btn btn-mini btn-info small">back to the goal</a>
+<table class="table">
+	<thead>
+		<tr>
+			<td><strong>{{p.name}}</strong></td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Created on:</td>
+			<td>{{p.create_date.strftime("%b %d, %Y")}}</td>
+		</tr>
+		<tr>
+			<td>Start on:</td>
+			<td>{{p.start_date}}</td>
+			<td>End on:</td>
+			<td>{{p.end_date}}</td>
+		</tr>
+		<tr>
+			<td>Note</td>
+			<td>{{p._render_text | safe}}</td>
+		</tr>
+		
+		<a href="/task/edit?tid={{p.key().id()}}" class="btn btn-mini btn-info small pull-right">Edit Task</a>
+	</tbody>
+</table>
+{% endblock %}

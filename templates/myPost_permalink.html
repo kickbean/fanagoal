@@ -1,0 +1,29 @@
+{% extends "mainpage_base.html" %} 
+
+{% block midbodycontent %}
+<a href="/activity" class="btn btn-mini btn-info small">back to all posts</a>
+<table class="table">  
+	<tbody>
+		<tr>
+			<td class="span5" colspan="2"><strong><big>{{p.subject}}</big></strong></td>
+			<td class="span2"><div><small>{{p.created.strftime("%b %d, %Y")}}</small></div></td>
+			<td class="span1 pull-right"><span class="label label-success span1"><center># likes</center></span></td>
+		</tr>
+		<tr><td class="span2"></td>
+			<td colspan="2">{{p._render_text | safe}}</td>
+		</tr>
+	</tbody>
+</table> 
+{% endblock %}
+
+{% block comments %}
+<div class="span8 offset2 well">
+	<table class="table">
+		<thead>
+			<tr>
+				<td colspan="3"><h3>Comments</h3>
+			</tr>
+		</thead>
+	</table>
+</div>
+{% endblock %}

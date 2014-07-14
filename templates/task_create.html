@@ -1,0 +1,59 @@
+{% extends "fana_base.html" %}
+{% block headcontent %}
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+{% endblock %}
+
+{% block bodycontent %}
+  <h2>create task</h2>
+
+    <form method="post">
+      <label>
+        <div>name</div>
+        <input type="text" name="name" value="{{name}}">
+      </label>
+
+      <label>
+        <div>note</div>
+        <textarea name="note">{{note}}</textarea>
+      </label>
+      
+      <label>
+      	<div>start date</div>
+      	<input type="text" name="start_date" id="start_date">
+      </label>
+      <label>
+      	<div>end date</div>
+      	<input type="text" name="end_date" id="end_date">
+      </label>
+      <script>
+	    $(function() {
+	    	$('#start_date').datepicker();
+	        $('#start_date').datepicker('setDate', '0');
+	        $('#end_date').datepicker();
+	        $('#end_date').datepicker('setDate', '0');
+	        $('#end_date').datepicker('option', 'minDate', '0');
+	        $('#start_date').change(function() {
+	        	$('#end_date').datepicker('option', 'minDate', $(this).datepicker('getDate'));
+	        });
+	    });
+	  </script>
+      <label>
+      	<div>frequency</div>
+      	Repeat every
+      	<input type="text" name="freq_value" value="1">
+      	<select name="freq_unit">
+      		<option value="day" selected>day</option>
+      		<option value="week">week</option>
+      		<option value="month">month</option>
+      	</select>
+      </label>
+
+      <div class="error">{{error}}</div>
+
+      <input type="submit">
+    </form>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "mainpage_base.html" %} 
+
+{% block midbodycontent %}
+<h3>My Goal</h3>
+	{% if not goals %}
+	Let's create some post using the New Post icon...
+	{% endif %}
+	{% if goals %}
+<ul class="nav nav-pills">
+	<li class="active"><a href="#ongoingGoal" data-toggle="tab">Ongoing</a>
+	</li>
+	<li><a href="#completedGoal" data-toggle="tab">Completed</a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane active" id="ongoingGoal">
+		<table class="table">
+			<tr>
+				<td class="span3"><strong>Goal</strong></td>
+				<td class="span2"><strong>Progress</strong></td>
+				<td><strong>Time</strong></td>
+				<td><strong>Score</strong></td>
+			</tr>
+
+			{% for g in goals %} 
+				{% if g.flag == false %}
+
+			<tr>
+				<td><a href="/goal/{{g.key().id()}}">{{g.subject}}</a></td>
+				<td>
+				
+					<div class="progress progress-warning progress-striped active">
+						<div class="bar" style="width: 60%;"></div>
+					</div>
+				</td>
+				<td>{{g.start_date.strftime("%b %d, %Y")}} -
+					{{g.end_date.strftime("%b %d, %Y")}}</td>
+				<td>--</td>
+			</tr>
+				{% endif %} 
+			{% endfor %}
+		</table>
+	</div>
+	<div class="tab-pane" id="completedGoal">
+		<table class="table">
+			<tr>
+				<td><strong>Goal</strong></td>
+				<td><strong>Time</strong></td>
+				<td><strong>Score</strong></td>
+				<td><strong>Rewards</strong></td>
+			</tr>
+
+			{% for g in goals %} 
+				{% if g.flag == true %}
+			<tr>
+				<td><a href="/goal/{{g.key().id()}}">{{g.subject}}</a></td>
+				<td>{{g.start_date.strftime("%b %d, %Y")}} -
+					{{g.end_date.strftime("%b %d, %Y")}}</td>
+				<td>4.3</td>
+				<td>Gold Medal</td>
+			</tr>
+				{% endif %} 
+			{% endfor %}
+		</table>
+	</div>
+</div>
+	{% endif %}
+
+<!-- /.tab-content -->
+{% endblock %}
+
+{% block comments %}
+<div class="span8 offset2 well">
+	<table class="table">
+		<thead>
+			<tr>
+				<td colspan="3"><h3>Comments</h3>
+			</tr>
+		</thead>
+	</table>
+</div>
+{% endblock %}

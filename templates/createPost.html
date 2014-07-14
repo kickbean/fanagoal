@@ -1,0 +1,25 @@
+{% extends "mainpage_base.html" %} 
+
+{% block midbodycontent %}
+				<div><h3>New Post</h3></div>
+				<form method="post">
+					<table class="table">  
+						<thead>
+							<tr>
+								<td><input class="span4" type="text" name="subject" placeholder="Title" value="{{subject}}"></td>
+							</tr>						
+						</thead>
+						<tbody>
+							<tr>
+								<td><textarea class="span7" name="content" class="blog" placeholder="Content">{{content}}</textarea></td>
+							</tr>
+							<tr>
+								<td class="label label-warning">{{error}}</td>
+							</tr>	
+							<tr>
+								<td><input class="btn btn-primary" type="submit" value="Post it!"></td>
+							</tr>				
+						</tbody>
+					</table>
+				</form>
+{% endblock %}

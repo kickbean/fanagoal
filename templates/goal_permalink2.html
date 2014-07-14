@@ -1,0 +1,73 @@
+ {% extends "mainpage_base.html" %} {% block midbodycontent %}
+<script src="../static/js/taskBar.js"></script>
+
+<a href="/goal" class="btn btn-mini btn-info small">back to all my goals</a>
+<table class="table">
+	<thead>
+		<tr>
+			<td class="span2"><strong><big>{{p.subject}}</big><strong>
+			<td colspan="2"><div
+					class="progress progress-warning progress-striped active span2"
+					style="margin: 20px, 0px;">
+					<div class="bar" style="width: 60%;"></div>
+				</div></td>
+			<td><span class="label label-success span1"><center>score:
+						4.3</center></span></td>
+			<td>
+				<ul class="nav">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">Edit<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/goal/edit?gid={{p.key().id()}}">Edit Goal</a></li>
+							<li><a href='/task/create?gid={{p.key().id()}}'>Add task</a></li>
+							<li><a href="#">Help</a></li>
+						</ul></li>
+				</ul>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+			<td><span class="label label-info pull-left">{{p.start_date}}</span></td>
+			<td colspan="2"></td>
+			<td><span class="label label-info pull-right">{{p.end_date}}</span></td>
+		</tr>
+		
+		{% for t in tasks %}
+		<tr>
+			<td><a href='/task/{{t.key().id()}}'>{{t.name}}</a></td>
+			<td colspan="4"><div id="{{t.key().id()}}">
+					&nbsp
+					<script>
+						barLen("{{t.tasklen}}", "{{t.taskstart}}", "{{t.goallen}}", "{{t.key().id()}}")
+					</script>
+				</div></td>
+		</tr>
+		{% endfor %}
+		<tr>
+			<td><strong>Description</strong></td>
+			<td colspan="3">{{p.content}}</td>
+		</tr>
+<!-- 		{% if p.author.key().id()==1 %}
+		<tr>
+			<td colspan=4></td>
+			<td><a href="/goal" class="btn btn-info small">adopt this plan</a></td>
+		</tr>
+		{% endif %} -->
+	</tbody>
+</table>
+
+{% endblock %} {% block comments %}
+<div class="span8 offset2 well">
+	<table class="table">
+		<thead>
+			<tr>
+				<td colspan="3"><h3>Comments</h3>
+			</tr>
+		</thead>
+	</table>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fanagoal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Songfan Yang">
+    
+    <!-- google web fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Trade+Winds|Luckiest+Guy' rel='stylesheet' type='text/css'>
+
+    <!-- Le styles -->
+    <link href="../static/css/fanagoal.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="../static/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../static/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#"><img src="../static/img/name_140.png"></a>
+          <div class="nav-collapse collapse">
+            <form class="navbar-form pull-right" action="/login" method="post" name="login">
+              <input class="span2" type="text" name="email" placeholder="Email" value="{{email}}">
+              <input class="span2" type="password" name="password" placeholder="Password" value="">
+              <input type="submit" class="btn" value="Log in"/>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Sail to your dream!</h1>
+        <br>
+		<div class="span6 offset1">Choose your plan</div>
+		<div class="span6 offset2">Achieve your goal</div>
+		<div class="span6 offset3">Share with your friends</div>
+		<a href="/signup" class="btn btn-primary btn-large pull-right">Sign up</a>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+         <center><img src="../static/img/newGoal_100.png" class="img-circle"></center> 
+         <br>
+         <p>Create your goal that you have been dreaming about. Specify the date you want to achieve it, and create its tasks.
+         	Trust yourself, you own the plan, you own the goal.</p>
+        </div>
+
+        <div class="span4">
+		 <center><img src="../static/img/myGoal_100.png" class="img-circle"></center>   
+		 <br>         
+         <p>Update some posts to show how you work your way towards your goal. 
+         Visualize your progress and work hard</p>
+       </div>
+       
+        <div class="span4">
+         <center><img src="../static/img/friends_100.png" class="img-circle"></center>  
+         <br>          
+         <p>Interact with friends, let them watch you making amazing progress! 
+         You can also check out the plans that everybody is using, simply adopt them and realize your goal</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Fanagoal 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="../static/js/jquery.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

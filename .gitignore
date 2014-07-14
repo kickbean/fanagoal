@@ -1,0 +1,7 @@
+*.pyc
+*.swp
+*.py~
+.project
+.pydevproject
+index.yaml
+fanagoal.komodoproject
